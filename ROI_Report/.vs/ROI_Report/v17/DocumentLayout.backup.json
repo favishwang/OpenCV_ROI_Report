@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\class\\blobdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:class\\blobdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\forms\\thresholdsetting_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:forms\\thresholdsetting_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\roi_report.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:roi_report.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\forms\\thresholdsetting_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:forms\\thresholdsetting_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\class\\roi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:class\\roi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\class\\roimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:class\\roimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|d:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\projects\\opencv_roi_report\\roi_report\\class\\visiondisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A686BC49-A094-455D-A337-409E5ED9723E}|ROI_Report.csproj|solutionrelative:class\\visiondisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,109 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ROIManager.cs",
-              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\ROIManager.cs",
-              "RelativeDocumentMoniker": "Class\\ROIManager.cs",
-              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\ROIManager.cs",
-              "RelativeToolTip": "Class\\ROIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "BlobDetector.cs",
+              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\BlobDetector.cs",
+              "RelativeDocumentMoniker": "Class\\BlobDetector.cs",
+              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\BlobDetector.cs",
+              "RelativeToolTip": "Class\\BlobDetector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:56:12.585Z",
+              "WhenOpened": "2026-02-27T05:54:03.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VisionDisplay.cs",
-              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\VisionDisplay.cs",
-              "RelativeDocumentMoniker": "Class\\VisionDisplay.cs",
-              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\VisionDisplay.cs",
-              "RelativeToolTip": "Class\\VisionDisplay.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAQwI0AAABCAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ThresholdSetting_Form.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\ThresholdSetting_Form.cs",
+              "RelativeDocumentMoniker": "Forms\\ThresholdSetting_Form.cs",
+              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\ThresholdSetting_Form.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Forms\\ThresholdSetting_Form.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:56:01.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T05:55:02.972Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ROI.cs",
-              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\ROI.cs",
-              "RelativeDocumentMoniker": "Class\\ROI.cs",
-              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Class\\ROI.cs",
-              "RelativeToolTip": "Class\\ROI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:55:45.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ROI_Report",
-              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\ROI_Report.csproj",
-              "RelativeDocumentMoniker": "ROI_Report.csproj",
-              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\ROI_Report.csproj",
-              "RelativeToolTip": "ROI_Report.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-26T01:55:25.654Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
               "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\MainForm.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Forms\\MainForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:35:45.196Z",
+              "WhenOpened": "2026-02-27T05:54:51.892Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\MainForm.Designer.cs",
-              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\MainForm.Designer.cs",
-              "RelativeToolTip": "Forms\\MainForm.Designer.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAAEkAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ThresholdSetting_Form.cs",
+              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\ThresholdSetting_Form.cs",
+              "RelativeDocumentMoniker": "Forms\\ThresholdSetting_Form.cs",
+              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\ThresholdSetting_Form.cs",
+              "RelativeToolTip": "Forms\\ThresholdSetting_Form.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:34:49.804Z",
+              "WhenOpened": "2026-02-27T05:54:23.548Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
               "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Forms\\MainForm.cs",
               "RelativeToolTip": "Forms\\MainForm.cs",
-              "ViewState": "AgIAAB4BAAAAAAAAAAAYwC0BAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:31:30Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\\uD669\uC778\uD0DC \uAC1C\uC778 \uD3F4\uB354\\Projects\\OpenCV_ROI_Report\\ROI_Report\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T01:31:24.345Z",
+              "WhenOpened": "2026-02-27T05:53:29.308Z",
               "EditorCaption": ""
             }
           ]

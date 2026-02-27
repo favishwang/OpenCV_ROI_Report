@@ -25,3 +25,4 @@ D:\황인태 개인 폴더\Projects\OpenCV_ROI_Report\ROI_Report\obj\Debug\net8.
 D:\황인태 개인 폴더\Projects\OpenCV_ROI_Report\ROI_Report\bin\Debug\net8.0-windows\OpenCvSharp.Extensions.dll
 D:\황인태 개인 폴더\Projects\OpenCV_ROI_Report\ROI_Report\bin\Debug\net8.0-windows\System.Drawing.Common.dll
 D:\황인태 개인 폴더\Projects\OpenCV_ROI_Report\ROI_Report\obj\Debug\net8.0-windows\ROI_Report.Properties.Resources.resources
+D:\황인태 개인 폴더\Projects\OpenCV_ROI_Report\ROI_Report\obj\Debug\net8.0-windows\ROI_Report.Forms.ThresholdSetting_Form.resources

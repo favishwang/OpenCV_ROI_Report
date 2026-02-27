@@ -13,14 +13,8 @@ namespace ROI_Report.Class
         private double _scale;
         private System.Drawing.Point _offset;
 
-        /// <summary>
-        /// 현재 소스 이미지
-        /// </summary>
         public Mat? SourceImage => _sourceImage;
 
-        /// <summary>
-        /// 이미지를 설정하고 표시용 스케일/오프셋을 계산합니다.
-        /// </summary>
         public void SetImage(Mat image, System.Drawing.Size displaySize)
         {
             _sourceImage = image;
@@ -28,9 +22,6 @@ namespace ROI_Report.Class
             CalculateScaleAndOffset();
         }
 
-        /// <summary>
-        /// 표시 영역 크기가 변경되었을 때 호출합니다.
-        /// </summary>
         public void UpdateDisplaySize(System.Drawing.Size displaySize)
         {
             _displaySize = displaySize;
@@ -54,9 +45,6 @@ namespace ROI_Report.Class
                 (_displaySize.Height - scaledHeight) / 2);
         }
 
-        /// <summary>
-        /// PictureBox(표시) 좌표를 이미지 좌표로 변환합니다.
-        /// </summary>
         public OpenCvSharp.Point DisplayToImage(System.Drawing.Point displayPoint)
         {
             if (_sourceImage == null || _scale <= 0)
@@ -71,10 +59,7 @@ namespace ROI_Report.Class
 
             return new OpenCvSharp.Point(x, y);
         }
-
-        /// <summary>
-        /// 이미지 좌표를 PictureBox(표시) 좌표로 변환합니다.
-        /// </summary>
+        
         public System.Drawing.Point ImageToDisplay(OpenCvSharp.Point imagePoint)
         {
             if (_scale <= 0)
@@ -85,9 +70,6 @@ namespace ROI_Report.Class
             return new System.Drawing.Point(x, y);
         }
 
-        /// <summary>
-        /// 이미지 Rect를 표시 좌표 Rect로 변환합니다.
-        /// </summary>
         public Rect ImageRectToDisplay(Rect imageRect)
         {
             var topLeft = ImageToDisplay(imageRect.TopLeft);
@@ -97,9 +79,6 @@ namespace ROI_Report.Class
             return new Rect(topLeft.X, topLeft.Y, w, h);
         }
 
-        /// <summary>
-        /// 표시 좌표 Rect를 이미지 좌표 Rect로 변환합니다.
-        /// </summary>
         public Rect DisplayRectToImage(Rectangle displayRect)
         {
             var topLeft = DisplayToImage(new System.Drawing.Point(displayRect.X, displayRect.Y));
@@ -109,9 +88,6 @@ namespace ROI_Report.Class
             return new Rect(topLeft.X, topLeft.Y, w, h);
         }
 
-        /// <summary>
-        /// ROI가 표시 영역 내에 있는지 확인합니다.
-        /// </summary>
         public bool IsPointInDisplayArea(System.Drawing.Point displayPoint)
         {
             if (_sourceImage == null)
@@ -122,13 +98,6 @@ namespace ROI_Report.Class
                    imgPoint.Y >= 0 && imgPoint.Y < _sourceImage.Height;
         }
 
-        /// <summary>
-        /// ROI를 포함한 이미지를 Bitmap으로 반환합니다.
-        /// </summary>
-        /// <param name="roiManager">ROI 관리자</param>
-        /// <param name="selectionRect">드래그 중인 선택 영역 (빨간색)</param>
-        /// <param name="selectedRoiId">리스트에서 선택된 ROI ID (강조 표시)</param>
-        /// <param name="selectionShapeType">드래그 중 선택 영역의 모양</param>
         public Bitmap? GetDisplayBitmapWithROIs(ROIManager roiManager, Rect? selectionRect = null, int? selectedRoiId = null, RoiShapeType selectionShapeType = RoiShapeType.Rect)
         {
             if (_sourceImage == null || _sourceImage.Empty())
@@ -136,13 +105,11 @@ namespace ROI_Report.Class
 
             using var displayMat = _sourceImage.Clone();
 
-            // 기존 ROI 그리기
             foreach (var roi in roiManager.ROIs)
             {
                 DrawRoi(displayMat, roi, roi.Id == selectedRoiId);
             }
 
-            // 선택 중인 영역 그리기 (드래그)
             if (selectionRect.HasValue && selectionRect.Value.Width > 0 && selectionRect.Value.Height > 0)
             {
                 if (selectionShapeType == RoiShapeType.Circle)
@@ -180,9 +147,6 @@ namespace ROI_Report.Class
             }
         }
 
-        /// <summary>
-        /// ROI 없이 원본 이미지를 Bitmap으로 반환합니다.
-        /// </summary>
         public Bitmap? GetDisplayBitmap(Mat? image = null)
         {
             var mat = image ?? _sourceImage;

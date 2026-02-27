@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ROI_Report")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b35e48a40eb2e49fa46772e1ebd89e5dd982aa13")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5a7b4e99a4c43180cb05c6787b9f413501b3965")]
 [assembly: System.Reflection.AssemblyProductAttribute("ROI_Report")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ROI_Report")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

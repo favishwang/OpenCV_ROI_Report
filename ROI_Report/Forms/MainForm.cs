@@ -1,6 +1,7 @@
 using OpenCvSharp;
 using OpenCvSharp.Extensions;
 using ROI_Report.Class;
+using ROI_Report.Forms;
 
 namespace ROI_Report
 {
@@ -8,9 +9,10 @@ namespace ROI_Report
     {
         private readonly VisionDisplay _visionDisplay = new();
         private readonly ROIManager _roiManager = new();
+        private readonly RoiFileService _roiFileService = new();
+        private readonly BlobDetector _blobDetector = new();
+        private readonly ImageContext _imageContext = new();
 
-        private Mat? _originalImage;
-        private Mat? _currentImage;
         private OpenCvSharp.Point _dragStart;
         private OpenCvSharp.Point _dragEnd;
         private bool _isDragging;
@@ -21,23 +23,42 @@ namespace ROI_Report
         public MainForm()
         {
             InitializeComponent();
-            SetupPictureBoxEvents();
+            SetupEvents();
             UpdateRoiShapeButtons();
         }
 
-        private void SetupPictureBoxEvents()
+        private void SetupEvents()
         {
+            // PictureBox
+            pictureBoxImage.DoubleClick += PictureBoxImage_DoubleClick;
             pictureBoxImage.MouseDown += PictureBox_MouseDown;
             pictureBoxImage.MouseMove += PictureBox_MouseMove;
             pictureBoxImage.MouseUp += PictureBox_MouseUp;
-            pictureBoxImage.Resize += (s, e) =>
+            pictureBoxImage.Resize += PictureBoxImage_Resize;
+
+            // Buttons
+            Load_Image_Btn.Click += Load_Image_Btn_Click;
+            GrayImage.Click += GrayImage_Click;
+            ColorImage.Click += ColorImage_Click;
+            Save_Image_Btn.Click += Save_Image_Btn_Click;
+            ROI_Rect_Btn.Click += ROI_Rect_Btn_Click;
+            ROI_Circle_Btn.Click += ROI_Circle_Btn_Click;
+            thresholdButton.Click += ThresholdButton_Click;
+            blobButton.Click += BlobButton_Click;
+
+            // ListBox
+            listBoxRoi.SelectedIndexChanged += ListBoxRoi_SelectedIndexChanged;
+            listBoxRoi.KeyDown += ListBoxRoi_KeyDown;
+            listBoxRoi.MouseDown += ListBoxRoi_MouseDown;
+        }
+
+        private void PictureBoxImage_Resize(object? sender, EventArgs e)
+        {
+            if (_imageContext.CurrentImage != null)
             {
-                if (_currentImage != null)
-                {
-                    _visionDisplay.UpdateDisplaySize(pictureBoxImage.Size);
-                    RefreshDisplay();
-                }
-            };
+                _visionDisplay.UpdateDisplaySize(pictureBoxImage.Size);
+                RefreshDisplay();
+            }
         }
 
         private void LoadImage()
@@ -50,9 +71,6 @@ namespace ROI_Report
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    _originalImage?.Dispose();
-                    _currentImage?.Dispose();
-
                     var loaded = Cv2.ImRead(ofd.FileName);
                     if (loaded == null || loaded.Empty())
                     {
@@ -60,90 +78,111 @@ namespace ROI_Report
                         return;
                     }
 
-                    _originalImage = loaded.Clone();
-                    _currentImage = _originalImage.Clone();
-
+                    _imageContext.Load(loaded);
                     _roiManager.Clear();
                     _selectedRoiId = null;
-                    _visionDisplay.SetImage(_currentImage, pictureBoxImage.Size);
+                    _visionDisplay.SetImage(_imageContext.CurrentImage!, pictureBoxImage.Size);
                     RefreshRoiList();
                     RefreshDisplay();
                 }
             }
         }
 
-        private void Load_Image_Btn_Click(object? sender, EventArgs e)
+        private void PictureBoxImage_DoubleClick(object? sender, EventArgs e)
         {
             LoadImage();
         }
 
+        private void Load_Image_Btn_Click(object? sender, EventArgs e)
+        {
+            LoadRoiData();
+        }
+
         private void GrayImage_Click(object? sender, EventArgs e)
         {
-            if (_originalImage == null || _originalImage.Empty())
+            if (!_imageContext.HasImage)
             {
                 MessageBox.Show("먼저 이미지를 불러오세요.");
                 return;
             }
 
-            _currentImage?.Dispose();
-            using var gray = new Mat();
-            Cv2.CvtColor(_originalImage, gray, ColorConversionCodes.BGR2GRAY);
-            _currentImage = new Mat();
-            Cv2.CvtColor(gray, _currentImage, ColorConversionCodes.GRAY2BGR);
-
-            _visionDisplay.SetImage(_currentImage, pictureBoxImage.Size);
+            _imageContext.ApplyGrayscale();
+            _visionDisplay.SetImage(_imageContext.CurrentImage!, pictureBoxImage.Size);
             RefreshDisplay();
         }
 
         private void ColorImage_Click(object? sender, EventArgs e)
         {
-            if (_originalImage == null || _originalImage.Empty())
+            if (!_imageContext.HasImage)
             {
                 MessageBox.Show("먼저 이미지를 불러오세요.");
                 return;
             }
 
-            _currentImage?.Dispose();
-            _currentImage = _originalImage.Clone();
-
-            _visionDisplay.SetImage(_currentImage, pictureBoxImage.Size);
+            _imageContext.ApplyColor();
+            _visionDisplay.SetImage(_imageContext.CurrentImage!, pictureBoxImage.Size);
             RefreshDisplay();
         }
 
         private void Save_Image_Btn_Click(object? sender, EventArgs e)
         {
-            if (_currentImage == null || _currentImage.Empty())
+            SaveRoiData();
+        }
+
+        private void LoadRoiData()
+        {
+            if (!_imageContext.HasImage)
             {
-                MessageBox.Show("먼저 이미지를 불러오세요.");
+                MessageBox.Show("먼저 이미지를 불러오세요.\n(이미지 영역 더블클릭)");
                 return;
             }
 
+            using var ofd = new OpenFileDialog
+            {
+                Title = "ROI 데이터 불러오기",
+                Filter = "JSON 파일|*.json",
+                DefaultExt = "json",
+                FileName = "ROI_Data.json"
+            };
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var roiData = _roiFileService.Load(ofd.FileName);
+                    _roiManager.LoadFromData(roiData);
+                    _selectedRoiId = null;
+                    RefreshRoiList();
+                    RefreshDisplay();
+                    MessageBox.Show($"{_roiManager.Count}개의 ROI를 불러왔습니다.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"불러오기 실패: {ex.Message}");
+                }
+            }
+        }
+
+        private void SaveRoiData()
+        {
             using var sfd = new SaveFileDialog
             {
-                Title = "이미지 저장",
-                Filter = "JPEG 파일|*.jpg|PNG 파일|*.png|BMP 파일|*.bmp",
-                DefaultExt = "jpg",
-                FileName = "ROI_Image.jpg"
+                Title = "ROI 데이터 저장",
+                Filter = "JSON 파일|*.json",
+                DefaultExt = "json",
+                FileName = "ROI_Data.json"
             };
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                var bitmap = _visionDisplay.GetDisplayBitmapWithROIs(_roiManager, null, _selectedRoiId, _roiShapeType);
-                if (bitmap != null)
+                try
                 {
-                    try
-                    {
-                        bitmap.Save(sfd.FileName);
-                        MessageBox.Show("저장되었습니다.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"저장 실패: {ex.Message}");
-                    }
-                    finally
-                    {
-                        bitmap.Dispose();
-                    }
+                    _roiFileService.Save(_roiManager, sfd.FileName);
+                    MessageBox.Show("저장되었습니다.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -166,9 +205,57 @@ namespace ROI_Report
             ROI_Circle_Btn.BackColor = _roiShapeType == RoiShapeType.Circle ? Color.LightBlue : SystemColors.Control;
         }
 
+        private void ThresholdButton_Click(object? sender, EventArgs e)
+        {
+            if (!_imageContext.HasImage)
+            {
+                MessageBox.Show("먼저 이미지를 불러오세요.");
+                return;
+            }
+
+            var form = new ThresholdSetting_Form(_imageContext.OriginalImage!, _imageContext.ThresholdValue);
+            form.ThresholdValueChanged += (value) => _imageContext.ThresholdValue = value;
+            if (form.ShowDialog(this) == DialogResult.OK && form.ResultImage != null)
+            {
+                _imageContext.CommitThreshold(form.CurrentThresholdValue);
+                form.ResultImage.Dispose();
+                _visionDisplay.SetImage(_imageContext.CurrentImage!, pictureBoxImage.Size);
+                RefreshDisplay();
+            }
+            form.Dispose();
+        }
+
+        private void BlobButton_Click(object? sender, EventArgs e)
+        {
+            if (!_imageContext.HasImage)
+            {
+                MessageBox.Show("먼저 이미지를 불러오세요.");
+                return;
+            }
+
+            _blobDetector.ThresholdValue = _imageContext.ThresholdValue;
+            var rects = _blobDetector.Detect(_imageContext.CurrentImage!);
+
+            if (rects.Count == 0)
+            {
+                MessageBox.Show("검출된 Blob이 없습니다.\nThreshold 값을 조정해 보세요.");
+                return;
+            }
+
+            _roiManager.Clear();
+            foreach (var rect in rects)
+            {
+                _roiManager.AddROI(rect, RoiShapeType.Rect);
+            }
+            _selectedRoiId = null;
+            RefreshRoiList();
+            RefreshDisplay();
+            MessageBox.Show($"{rects.Count}개의 Blob을 ROI로 추가했습니다.");
+        }
+
         private void PictureBox_MouseDown(object? sender, MouseEventArgs e)
         {
-            if (_currentImage == null || e.Button != MouseButtons.Left)
+            if (_imageContext.CurrentImage == null || e.Button != MouseButtons.Left)
                 return;
 
             if (!_visionDisplay.IsPointInDisplayArea(e.Location))
@@ -181,7 +268,7 @@ namespace ROI_Report
 
         private void PictureBox_MouseMove(object? sender, MouseEventArgs e)
         {
-            if (!_isDragging || _currentImage == null)
+            if (!_isDragging || _imageContext.CurrentImage == null)
                 return;
 
             _dragEnd = _visionDisplay.DisplayToImage(e.Location);
@@ -190,7 +277,7 @@ namespace ROI_Report
 
         private void PictureBox_MouseUp(object? sender, MouseEventArgs e)
         {
-            if (!_isDragging || e.Button != MouseButtons.Left || _currentImage == null)
+            if (!_isDragging || e.Button != MouseButtons.Left || _imageContext.CurrentImage == null)
                 return;
 
             _isDragging = false;
